@@ -14,28 +14,32 @@
         padding-top: 35px;
         padding-bottom: 35px;
     }
-    .form_class{
-        padding-bottom: 35px;  
+
+    .form_class {
+        padding-bottom: 35px;
         padding-left: 15px;
     }
+
     .btn_enviar {
         border-radius: 3px;
         border-color: white;
         background-color: white;
     }
+
     .btn_enviar:hover {
         background-color: red;
         border-color: red;
         cursor: pointer;
         color: white;
     }
+
 </style>
 
 <body>
     <div class="container">
         <div class=" row min-vh-100 justify-content-center align-items-center">
             <div class="col-10 bg-danger">
-                <form>
+                <form action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="container">
                         <div class="row align-items-sm-center">
@@ -48,11 +52,18 @@
                                     <div class=" form-group text-white">
                                         <label> Correo electronico </label>
                                         <input typw="email" class=" form-control" placeholder="example@gmail.com"
-                                            autofocus>
+                                            autofocus name="email">
+                                        @error('email')
+                                            <p class=" text-white">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class=" form-group">
                                         <label class="text-white"> Contraseña</label>
-                                        <input type="password" class="form-control" placeholder="Contraseña">
+                                        <input type="password" class="form-control" placeholder="Contraseña"
+                                            name="password">
+                                        @error('password')
+                                            <p class="text-white">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class=" text-center">
@@ -70,4 +81,5 @@
             </div>
         </div>
 </body>
+
 </html>
