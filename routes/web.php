@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('User.carrito');
 });
 
-Route::get('/',[AdminController::class,'agregarCalzado'])->name('agregar');
+Route::get('/agregar',[AdminController::class,'agregarCalzado'])->name('agregar');
 Route::post('/agregar',[AdminController::class, 'agregar']) -> name('agregar.form');
 //Rutas para vista login y registro usuarios
 //login
@@ -33,8 +33,8 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 //Usuarios
 Route::prefix('/user')->middleware('verificarUsuario')->group(function(){
     //Datos de usuario
-    Route::get("/inicio",[UserController::class,'inicio'])->name('user.inicio'); 
+    Route::get("/inicio",[UserController::class,'inicio'])->name('user.inicio');
 
     //Carrito
-    Route::get("/carrito",[CarritoController::class,'verCarrito'])->name('carrito'); 
+    Route::get("/carrito",[CarritoController::class,'verCarrito'])->name('carrito');
 });
