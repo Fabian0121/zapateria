@@ -21,7 +21,6 @@ Route::get('/', function () {
 
 Route::get('/agregar',[AdminController::class,'agregarCalzado'])->name('agregar');
 Route::post('/agregar',[AdminController::class, 'agregar']) -> name('agregar.form');
-Route::post('/eliminar',[AdminController::class,'eliminar'])->name('eliminar.form');
 //Rutas para vista login y registro usuarios
 //login
 Route::get("/registro", [UserController::class, 'viewRegistro'])->name('registroView');
