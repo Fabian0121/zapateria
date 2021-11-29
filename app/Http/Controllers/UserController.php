@@ -96,4 +96,9 @@ class UserController extends Controller
     {
         return view('User.listaDeseos');
     }
+    //Vista de perfil
+    public function perfilView()
+    {
+        return view('user.perfil');
+    }
 }

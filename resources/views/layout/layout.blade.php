@@ -54,17 +54,16 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-white">Inicio</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Productos</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Categorias</a></li>
+                    <li><a href="{{route('user.inicio')}}" class="nav-link px-2 text-white">Inicio</a></li>
+                    <li><a href="" class="nav-link px-2 text-white">Productos</a></li>
                 </ul>
                 <div class="text-end margin">
-                    <a href="#" class="d-block text-white text-decoration-none ">
+                    <a href="{{route('listaView')}}" class="d-block text-white text-decoration-none ">
                         <i class="fas fa-clipboard-list"> Favoritos</i>
                     </a>
                 </div>
                 <div class="text-end margin">
-                    <a href="#" class="d-block text-white text-decoration-none ">
+                    <a href="{{route('carritoView')}}" class="d-block text-white text-decoration-none ">
                         <i class="fas fa-shopping-cart"> Carrito </i>
                     </a>
                 </div>
@@ -77,13 +76,11 @@
                         <i class="far fa-user"> Perfil </i>
                     </a>
                     <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{route('perfilView')}}">Perfil</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" href="{{route('logout')}}">Cerrar sesion</a></li>
                     </ul>
                 </div>
             </div>

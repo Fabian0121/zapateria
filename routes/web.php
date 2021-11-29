@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\ListaController;
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,6 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('User.listaDeseos');
-});
 
 Route::get('/agregar',[AdminController::class,'agregarCalzado'])->name('agregar');
 Route::post('/agregar',[AdminController::class, 'agregar']) -> name('agregar.form');
@@ -37,5 +35,13 @@ Route::prefix('/user')->middleware('verificarUsuario')->group(function(){
     Route::get("/inicio",[UserController::class,'inicio'])->name('user.inicio');
 
     //Carrito
-    Route::get("/carrito",[CarritoController::class,'verCarrito'])->name('carrito');
+    Route::get("/carrito",[CarritoController::class,'verCarrito'])->name('carritoView');
+    Route::get("/carrito/eliminar/{id}",[CarritoController::class,'eliminar'])->name('carritoDelete');//eliminar
+
+    //Lista de deseos
+    Route::get("/lista",[ListaController::class,'listaView'])->name('listaView');
+    Route::get("/lista/agregar/{id}/{id2}",[ListaController::class,'agregar'])->name('listaAdd');//Agregar
+    Route::get("/lista/eliminar/{id}",[ListaController::class,'eliminar'])->name('listaDelete');//Eliminar
+    //Perfil
+    Route::get("/perfil",[UserController::class,'perfilView'])->name('perfilView');
 });

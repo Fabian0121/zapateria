@@ -63,7 +63,7 @@
                         <p> Usuario </p>
                     </div>
                     <div class="col-md-6">
-                        <p> Fabian Juarez Sandoval </p>
+                        <p> {{session('user')->nombre}} {{session('user')->apellido_p}} {{session('user')->apellido_m}} </p>
                     </div>
                 </div>
                 <div class="row">
@@ -71,7 +71,7 @@
                         <p> Correo electronico </p>
                     </div>
                     <div class="col-md-6 line">
-                        <p> yo6gmail.com </p>
+                        <p> {{session('user')->email}} </p>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                         <p> Nombre y apellidos </p>
                     </div>
                     <div class="col-md-6">
-                        <p> Fabian Juarez Sandoval </p>
+                        <p> {{session('user')->nombre}} {{session('user')->apellido_p}} {{session('user')->apellido_m}} </p>
                     </div>
                 </div>
                 <div class="row border-bottom line">
@@ -92,7 +92,7 @@
                         <p> Correo electronico </p>
                     </div>
                     <div class="col-md-6">
-                        <p> yo6gmail.com </p>
+                        <p> {{session('user')->email}} </p>
                     </div>
                 </div>
                 <div class="row border-bottom line">
@@ -100,7 +100,7 @@
                         <p>Contraseña </p>
                     </div>
                     <div class="col-md-6">
-                        <p> yo6gmail.com </p>
+                        <p> ************* </p>
                     </div>
                 </div>
                 <div class="row border-bottom line">
@@ -108,7 +108,7 @@
                         <p>Telefono </p>
                     </div>
                     <div class="col-md-6">
-                        <p> yo6gmail.com </p>
+                        <p> {{session('user')->telefono}} </p>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                         <p>Direccion </p>
                     </div>
                     <div class="col-md-6">
-                        <p> Fabian Juarez Sandoval </p>
+                        <p> {{session('user')->Direccion}} </p>
                     </div>
                 </div>
             </div>

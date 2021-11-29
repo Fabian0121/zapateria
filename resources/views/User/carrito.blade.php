@@ -19,35 +19,48 @@
             padding-left: 15px;
         }
 
+        .empyte {
+            padding-bottom: 15%;
+            padding-top: 15.5%;
+            min-width: 500px;
+            ;
+        }
+        .contenido{
+            min-height: 380px;
+            padding-bottom: 15px;
+        }
+        .boton{
+            margin-top: 1%;
+        }
+
     </style>
 @endsection
 
 @section('titulo-pagina')
     <div class="container">
-        <div class="col-md-12 bg-danger text-white titulo">
+        <div class="col-md-12 bg-danger text-white titulo contenido">
             <h2> Productos () </h2>
-            
+
             @if ($carrito)
-                <p> Funciona </p>
-            @endif
-            
-            @for ($a = 0; $a < 5; $a++)
+            @foreach ($calzado as $item)
+                @foreach ($carrito as $c)
+                @if ($item->id_calzado == $c->id_producto)
                 <div class="row" style="padding-top: 30px" style=" margin-bottom: 10px">
                     <div class="col-2 img">
                         <img src="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-cartoon-cargo-box-image_1252309.jpg"
                             width="100" height="100">
                     </div>
                     <div class="col-3">
-                        <p> Marca:{{ $a }} </p>
-                        <p> Tipo: </p>
+                        <p> Marca:{{$item->marca}}</p>
+                        <p> Tipo:{{$item->tipo}} </p>
                     </div>
                     <div class="col-3">
-                        <p> Modelo: </p>
-                        <p> Medida: </p>
+                        <p> Modelo:{{$item->modelo}} </p>
+                        <p> Medida:{{$item->medida}} </p>
                     </div>
                     <div class="col-3">
-                        <p> Precio: </p>
-                        <p> Cantidad: </p>
+                        <p> Precio:{{$c->precio}} </p>
+                        <p> Cantidad:{{$c->cantidad }}</p>
                     </div>
                 </div>
                 <div class="row border-bottom">
@@ -55,27 +68,41 @@
 
                     </div>
                     <div class="col-2">
-                        <a class="text-white " href=""> Eliminar </a>
+                        <a class="text-white " href="{{route('carritoDelete',["id" => $c->id])}}"> Eliminar </a>
                     </div>
                     <div class="col-3">
-                        <a class="text-white" href=""> Agregar a lista de deseos</a>
+                        <a class="text-white" href="{{route('listaAdd',['id' => $c->id_producto, 'id2' => $c->id])}}"> Agregar a lista de deseos</a>
                     </div>
                     <div class="col-6">
                     </div>
                 </div>
-                <div style="margin-bottom:1%, margin-top:1%" >
+                <div style="margin-bottom:1%, margin-top:1%">
                 </div>
-            @endfor
-        </div>
-        <div class="">
-            <div class="col-md-12 justify-content-end" style="margin-bottom: 20px">
-                <div class="row">
-                    <div class="col-2">
-                        <button class="btn-danger btn-lg">Comprar</button>
+                @endif
+                @endforeach
+            @endforeach
+            </div>
+            <div class="">
+                <div class="col-md-12 justify-content-end" style="margin-bottom: 20px">
+                    <div class="row">
+                        <div class="col-2 boton">
+                            <button class="btn-danger btn-lg">Comprar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            @else
+                <div class="col-12">
+                    <div class=" justify-content-center empyte">
+                        <h1> Por el momento no tienes productos en tu carrito </h1>
+                    </div>
+                </div>
+            </div>
+            @endif
+       
+
+        
+
     </div>
 @endsection
 
