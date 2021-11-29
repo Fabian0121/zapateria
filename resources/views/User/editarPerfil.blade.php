@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('zapateria.resources.views.layout.layout')
 
 @section('titulo')
     <title>Editar Perfil</title>

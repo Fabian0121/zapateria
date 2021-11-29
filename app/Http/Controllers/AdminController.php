@@ -17,14 +17,22 @@ public function agregarCalzado()
     return view("RegistroProducto",["categorias" => $categorias,"marcas" => $marcas]);
 
 }
+public function productos(){
+    $productos = calzadomodel::get();
+    return view("productos",["productos"=>$productos]);
+}
 
+public function eliminar(Request $datos){
+    $productos = calzadomodel::get();
+    $eliminar = calzadomodel::where('id_calzado',$datos -> ID)->delete();
+    if ($eliminar)
+        return view("productos",["productos" => $productos,"estatus" => "success","mensaje" => "producto eliminado exitosamente"]);
+    else
+        return view("productos",["productos" => $productos,"estatus" => "error","mensaje" => "No se pudo eliminar :c"]);
 
-
-
+}
 
     public function agregar(Request $datos){
-
-
 
         if(!$datos -> marca || !$datos -> tipo || !$datos -> modelo || !$datos -> talla || !$datos -> precio || !$datos -> stock)
             return view("RegistroProducto",["estatus" => "error","mensaje" => "Falta informacion"]);
@@ -43,7 +51,7 @@ public function agregarCalzado()
         $zapato -> stock = $datos -> stock;
         $zapato -> save();
 //return route('agregar',["estatus" => "success","mensaje" => "modelo ".$datos->modelo." agregada exitosamente"]);
-        return view("RegistroProducto", ["estatus" => "success","mensaje" => "modelo ".$datos->modelo." agregada exitosamente"]);
+        return view("RegistroProducto", ["estatus" => "success","mensaje" => "modelo ".$datos->modelo." agregado exitosamente"]);
     }
 
 }
