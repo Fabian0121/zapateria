@@ -16,10 +16,16 @@ use App\Http\Controllers\UserController;
 |
 */
 
+<<<<<<< HEAD
+=======
+Route::get('/', function () {
+    return view('User.carrito');
+});
+>>>>>>> e5176d6c5c05d3363f94af467e449d9e6d951c8f
 
 Route::get('/agregar',[AdminController::class,'agregarCalzado'])->name('agregar');
 Route::post('/agregar',[AdminController::class, 'agregar']) -> name('agregar.form');
-
+Route::post('/eliminar',[AdminController::class,'eliminar'])->name('eliminar.form');
 //Rutas para vista login y registro usuarios
 //login
 Route::get("/registro", [UserController::class, 'viewRegistro'])->name('registroView');
